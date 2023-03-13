@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Github Repos Search</title>
+  <style type="text/css">
+
+      .form {
+          margin-top: 20px;
+          margin-left: 10%;
+      }
+      </style>
+</head>
+
+<body>
+<div>
+  <h1>Github Repos Search</h1>
+</div>
+<%= form_tag(search_repositories_path, method: :get) do %>
+  <div class="form" style="margin-left: 10%">
+      <label for="search_bar">Please Enter Repository Here:</label>
+      <%= text_field_tag :search, search_input, id: 'search_bar', placeholder: "Search Repository here", class: "form-control" %>
+  </div>
+<% end %>
+
+
+  <% if search_input.blank? %>
+    <h3>Please Enter Something in the search bar</h3>
+
+  <% else %>
+
+  <div class="form">
+    <ul>
+      <li><%= "Total Results = #{repos[:total_count]}" %></li>
+      <li><%= "Incomplete Result = #{repos[:incomplete_results]}" %></li>
+    </ul>
+  </div>
+  <div class="form">
+  <% repos[:items].each do |repo| %>
+
+        <dl>
+          <dt>Id</dt> <dd><%= repo.id %></dd>
+          <dt>Node Id</dt> <dd><%= repo.node_id %></dd>
+          <dt>Name</dt> <dd><%= repo.name %></dd>
+          <dt>Full Name</dt> <dd><%= repo.full_name %></dd>
+          <dt>Description</dt> <dd><%= repo.description %></dd>
+          <dt>Html URL</dt> <dd><a href= <%= repo.html_url %> ><%= repo.html_url %></a></dd>
+        </dl>
+
+      <hr style="margin-right: 10%">
+  <% end %>
+  </div>
+<% end %>
+</body>
+</html>
