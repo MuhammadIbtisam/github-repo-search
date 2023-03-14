@@ -11,6 +11,10 @@ Things you may want to cover:
 
 * Configuration
 
+  We need to add GITHUB_OAUTH_ACCESS_TOKEN to get this Token please follow this Guide 
+    *****https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token*****
+  And in .env file or in Heroku => Settings => Config Vars please add this GITHUB_OAUTH_ACCESS_TOKEN
+  
 * Database creation
 
 * Database initialization
