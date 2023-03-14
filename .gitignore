@@ -33,6 +33,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-.env
-.env.development
-.env.test
+
+# Ignore logfiles and tempfiles.
+.env*
+/public/system
+.DS_Store
+*.swp
